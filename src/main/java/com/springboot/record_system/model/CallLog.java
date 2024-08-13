@@ -1,8 +1,7 @@
 package com.springboot.record_system.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -11,8 +10,7 @@ import java.time.LocalDateTime;
 public class CallLog {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private LocalDateTime fromTime;
     private LocalDateTime toTime;
     private String caller;

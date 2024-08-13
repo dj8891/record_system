@@ -6,8 +6,7 @@ import java.util.List;
 public class SearchCriteria {
     private List<String> callers;
     private String searchTerm;
-    private LocalDateTime fromTime;
-    private LocalDateTime toTime;
+    private LocalDateTime queryTime;
 
     // Getters and Setters
 
@@ -19,11 +18,7 @@ public class SearchCriteria {
         return searchTerm;
     }
 
-    public LocalDateTime getFromTime() {
-        return fromTime;
-    }
-
-    public LocalDateTime getToTime() {
-        return toTime;
+    public LocalDateTime getQueryTime() {
+        return queryTime;
     }
 }

@@ -39,10 +39,10 @@ public class CallService {
         }
 
         // Filter by date range using fromTime and toTime
-        if (criteria.getFromTime() != null && criteria.getToTime() != null) {
+        if (criteria.getQueryTime() != null) {
             logs = logs.stream()
-                    .filter(log -> log.getFromTime().isBefore(criteria.getToTime()) &&
-                            log.getToTime().isAfter(criteria.getFromTime()))
+                    .filter(log -> log.getFromTime().isBefore(criteria.getQueryTime()) &&
+                            log.getToTime().isAfter(criteria.getQueryTime()))
                     .collect(Collectors.toList());
         }
 
