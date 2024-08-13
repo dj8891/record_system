@@ -1,7 +1,9 @@
 package com.springboot.record_system.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.springboot.record_system.model.CallLog;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CallLogRepository extends JpaRepository<CallLog, Long> {
+@Repository
+public interface CallLogRepository extends MongoRepository<CallLog, String> {
 }

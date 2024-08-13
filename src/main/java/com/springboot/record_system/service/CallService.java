@@ -3,6 +3,7 @@ package com.springboot.record_system.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springboot.record_system.repository.CallLogRepository;
@@ -12,6 +13,7 @@ import com.springboot.record_system.dto.SearchCriteria;
 @Service
 public class CallService {
 
+    @Autowired
     private final CallLogRepository callLogRepository;
 
     public CallService(CallLogRepository callLogRepository) {
@@ -23,8 +25,10 @@ public class CallService {
 
         if (criteria.getSearchTerm() != null && !criteria.getSearchTerm().isEmpty()) {
             logs = logs.stream()
-                    .filter(log -> log.getDetails().contains(criteria.getSearchTerm()) ||
-                            log.getCaller().contains(criteria.getSearchTerm()))
+                    .filter(log -> log.getClient().contains(criteria.getSearchTerm()) ||
+                            log.getCaller().contains(criteria.getSearchTerm()) ||
+                            log.getCompany().contains(criteria.getSearchTerm()) ||
+                            log.getCaption().contains(criteria.getSearchTerm()))
                     .collect(Collectors.toList());
         }
 
@@ -34,7 +38,13 @@ public class CallService {
                     .collect(Collectors.toList());
         }
 
-        // Add more filters based on criteria (e.g., date range, duration, etc.)
+        // Filter by date range using fromTime and toTime
+        if (criteria.getFromTime() != null && criteria.getToTime() != null) {
+            logs = logs.stream()
+                    .filter(log -> log.getFromTime().isBefore(criteria.getToTime()) &&
+                            log.getToTime().isAfter(criteria.getFromTime()))
+                    .collect(Collectors.toList());
+        }
 
         return logs;
     }
