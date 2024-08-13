@@ -13,10 +13,13 @@ public class CallLog {
     private String id;
     private LocalDateTime fromTime;
     private LocalDateTime toTime;
-    private String caller;
+    private String ipAddress;
+    private String userName;
     private String client;
     private String company;
+    private String nation;
     private Boolean isVideo;
+    private Boolean gender;
     private String fileLocation;
     private String caption;
 
@@ -30,8 +33,8 @@ public class CallLog {
         return toTime;
     }
 
-    public String getCaller() {
-        return caller;
+    public String getIpAddress() {
+        return ipAddress;
     }
 
     public String getClient() {
@@ -44,6 +47,26 @@ public class CallLog {
 
     public String getCaption() {
         return caption;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getNation() {
+        return this.nation;
+    }
+
+    public Boolean getGender() {
+        return gender;
     }
 
     public Boolean getIsVideo() {
