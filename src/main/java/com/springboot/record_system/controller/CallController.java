@@ -1,10 +1,7 @@
 package com.springboot.record_system.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.springboot.record_system.model.User;
+import org.springframework.web.bind.annotation.*;
 
 import com.springboot.record_system.dto.SearchCriteria;
 import com.springboot.record_system.service.CallService;
