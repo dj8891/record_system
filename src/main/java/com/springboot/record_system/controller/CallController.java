@@ -1,5 +1,6 @@
 package com.springboot.record_system.controller;
 
+import com.springboot.record_system.model.IPSetting;
 import com.springboot.record_system.model.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,6 +9,7 @@ import com.springboot.record_system.service.CallService;
 import com.springboot.record_system.model.CallLog;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -18,6 +20,12 @@ public class CallController {
 
     public CallController(CallService callService) {
         this.callService = callService;
+    }
+
+    @GetMapping(path = "/log/{id}")
+    public CallLog getData(@PathVariable String id) {
+        Optional< CallLog > optional = callService.getLogById(id);
+        return optional.orElse(null);
     }
 
     @PostMapping("/logs")

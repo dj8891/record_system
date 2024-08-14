@@ -27,6 +27,10 @@ public class CallService {
         this.ipRepository = ipRepository;
     }
 
+    public Optional<CallLog> getLogById(String id) {
+        return callLogRepository.findById(id);
+    }
+
     public List<CallLog> searchLogs(SearchCriteria criteria) {
         List<CallLog> logs = callLogRepository.findAll().stream()
                 .peek(log -> {
