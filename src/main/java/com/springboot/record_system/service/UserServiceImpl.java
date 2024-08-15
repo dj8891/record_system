@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.record_system.model.User;
 import com.springboot.record_system.repository.UserRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ public class UserServiceImpl implements UserService {
 
   @Autowired
   private UserRepository userRepository;
+  @Autowired
+  private PasswordEncoder passwordEncoder;
 
   public UserServiceImpl(UserRepository userRepository) {
     super();
@@ -26,6 +29,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User createUser(User user) {
+    user.setPassword(passwordEncoder.encode(user.getPassword()));
     return userRepository.save(user);
   }
 
