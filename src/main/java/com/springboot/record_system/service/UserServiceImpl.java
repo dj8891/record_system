@@ -8,6 +8,7 @@ import com.springboot.record_system.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -42,4 +43,10 @@ public class UserServiceImpl implements UserService {
   public void deleteUserById(String id) {
     userRepository.deleteById(id);
   }
+
+  @Override
+  public Optional<User> findByName(String name) {
+    return this.userRepository.findByName(name);
+  }
+
 }
