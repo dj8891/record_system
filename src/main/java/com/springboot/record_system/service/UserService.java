@@ -1,6 +1,8 @@
 package com.springboot.record_system.service;
 
+import com.springboot.record_system.dto.PasswordResetRequest;
 import com.springboot.record_system.model.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,4 +17,5 @@ public interface UserService {
   User updateUser(User user);
   Optional<User> findByName(String name);
   void deleteUserById(String id);
+  ResponseEntity<?> resetPassword(PasswordResetRequest resetRequest);
 }
