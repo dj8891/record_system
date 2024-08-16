@@ -1,6 +1,5 @@
 package com.springboot.record_system.config;
 
-import jakarta.websocket.Session;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -33,10 +32,10 @@ public class SecurityConfiguration {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
     return httpSecurity
-        .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+//        .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(auth -> {
-              auth.requestMatchers("/auth/**", "/record/**", "/user/**").permitAll();
+              auth.requestMatchers("/auth/**", "/record/**").permitAll();
               auth.anyRequest().authenticated();
             }
         )
@@ -46,19 +45,18 @@ public class SecurityConfiguration {
         .build();
   }
 
-  @Bean
-  CorsConfigurationSource corsConfigurationSource() {
-    CorsConfiguration configuration = new CorsConfiguration();
-
-    configuration.setAllowedOrigins(List.of("http://localhost:8081", "*"));
-    configuration.addAllowedOriginPattern("*");
-    configuration.setAllowedMethods(List.of("GET","POST"));
-    configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
-
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
-    source.registerCorsConfiguration("/**", configuration);
-
-    return source;
-  }
+//  @Bean
+//  CorsConfigurationSource corsConfigurationSource() {
+//    CorsConfiguration configuration = new CorsConfiguration();
+//
+//    configuration.setAllowedOrigins(List.of("*"));
+//    configuration.setAllowedMethods(List.of("GET","POST"));
+//    configuration.setAllowedHeaders(List.of("Authorization","Content-Type"));
+//
+//    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//
+//    source.registerCorsConfiguration("/**", configuration);
+//
+//    return source;
+//  }
 }

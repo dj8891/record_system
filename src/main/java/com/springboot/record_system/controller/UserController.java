@@ -2,6 +2,7 @@ package com.springboot.record_system.controller;
 
 import com.springboot.record_system.model.User;
 import com.springboot.record_system.service.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -19,6 +20,11 @@ public class UserController {
   @GetMapping(path = "/users")
   public List<User> getAllUsers() {
     return userService.getAllUser();
+  }
+
+  @GetMapping(path = "/user")
+  public ResponseEntity<User> getUserByName() {
+    return ResponseEntity.ok(userService.getUserByName().orElseThrow());
   }
 
   @PostMapping(path = "/users")

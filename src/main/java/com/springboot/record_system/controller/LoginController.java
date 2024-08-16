@@ -1,5 +1,6 @@
 package com.springboot.record_system.controller;
 
+import com.springboot.record_system.dto.AuthenticationResponseDTO;
 import com.springboot.record_system.dto.LoginResponseDTO;
 import com.springboot.record_system.dto.LogoutResponseDTO;
 import com.springboot.record_system.dto.UserDTO;
