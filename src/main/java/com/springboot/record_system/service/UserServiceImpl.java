@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import com.springboot.record_system.model.User;
 import com.springboot.record_system.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +27,12 @@ public class UserServiceImpl implements UserService {
   @Override
   public List<User> getAllUser() {
     return userRepository.findAll();
+  }
+
+  @Override
+  public Optional<User> getUserByName() {
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    return userRepository.findByName(auth.getName());
   }
 
   @Override

@@ -1,7 +1,6 @@
 package com.springboot.record_system.controller;
 
 import com.springboot.record_system.dto.PasswordResetRequest;
-import com.springboot.record_system.model.CallLog;
 import com.springboot.record_system.model.User;
 import com.springboot.record_system.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -27,6 +27,11 @@ public class UserController {
   @GetMapping(path = "/users")
   public List<User> getAllUsers() {
     return userService.getAllUser();
+  }
+
+  @GetMapping(path = "/user")
+  public ResponseEntity<User> getUserByName() {
+    return ResponseEntity.ok(userService.getUserByName().orElseThrow());
   }
 
   @PostMapping(path = "/users")

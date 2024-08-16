@@ -10,6 +10,7 @@ import java.util.Optional;
 public interface UserService {
 
   List<User> getAllUser();
+  Optional<User> getUserByName();
   User createUser(User user);
   User updateUser(User user);
   Optional<User> findByName(String name);

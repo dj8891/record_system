@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.springboot.record_system.dto.RecordDTO;
 import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/record")
@@ -36,8 +38,25 @@ public class RecordController {
         String extension = originalFilename.substring(originalFilename.lastIndexOf('.') + 1);
         isVideo = extension.equals("avi");
       }
-      fileProcessingService.processFile(file.getInputStream(), file.getOriginalFilename());
-      callService.updateRecord(id, isVideo, "uploads/" + file.getOriginalFilename());
+      RecordDTO recordDTO = new RecordDTO();
+      // Create a LocalDateTime object with the specific value
+      LocalDateTime dateTime = recordDTO.getCurrentDateTime();
+
+      // Define the DateTimeFormatter to format the date part
+      DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+      // Extract the date part
+      String datePart = dateTime.format(dateFormatter);
+
+      // Extract the nanoseconds part and format it as a string
+      String nanosecondsPart = String.format("%09d", dateTime.getNano());
+
+      // Combine the date part and nanoseconds part
+      String result = datePart + "_" + nanosecondsPart;
+      String fileName = result + "_" + file.getOriginalFilename();
+
+      fileProcessingService.processFile(file.getInputStream(), fileName);
+      callService.updateRecord(id, isVideo, "uploads/" + fileName);
       return "File uploaded successfully: " + file.getOriginalFilename();
     } catch (IOException e) {
       return "File upload failed: " + e.getMessage();

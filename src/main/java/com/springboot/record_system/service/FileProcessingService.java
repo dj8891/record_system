@@ -11,7 +11,7 @@ import java.nio.file.Path;
 @Service
 public class FileProcessingService {
 
-  private static final String UPLOAD_DIR = "uploads/";
+  private static final String UPLOAD_DIR = "src/main/resources/static/upload/";
 
   @Async
   public void processFile(InputStream inputStream, String fileName) {

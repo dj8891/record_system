@@ -1,6 +1,7 @@
 package com.springboot.record_system.config;
 
 import com.springboot.record_system.repository.UserRepository;
+import com.springboot.record_system.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,7 +24,7 @@ public class ApplicationConfiguration {
 
   @Bean
   UserDetailsService userDetailsService() {
-    return username -> (UserDetails) userRepository.findByName(username)
+    return (username) -> (UserDetails) userRepository.findByName(username)
         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
   }
 
