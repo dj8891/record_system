@@ -56,7 +56,7 @@ public class RecordController {
       String fileName = result + "_" + file.getOriginalFilename();
 
       fileProcessingService.processFile(file.getInputStream(), fileName);
-      callService.updateRecord(id, isVideo, "uploads/" + fileName);
+      callService.updateRecord(id, isVideo, "upload/" + fileName);
       return "File uploaded successfully: " + file.getOriginalFilename();
     } catch (IOException e) {
       return "File upload failed: " + e.getMessage();

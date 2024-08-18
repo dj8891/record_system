@@ -3,6 +3,16 @@ package com.springboot.record_system.dto;
 public class LoginResponseDTO {
   private String token;
   private long expiresIn;
+  private String passwordNotMatched;
+
+  public String getPasswordNotMatched() {
+    return passwordNotMatched;
+  }
+
+  public LoginResponseDTO setPasswordNotMatched(String passwordNotMatched) {
+    this.passwordNotMatched = passwordNotMatched;
+    return this;
+  }
 
   public String getToken() {
     return token;
