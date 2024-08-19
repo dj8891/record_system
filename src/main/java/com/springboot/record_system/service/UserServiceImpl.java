@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
       if (!passwordEncoder.matches(resetRequest.getCurrentPassword(), user.getPassword())) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Current password is incorrect.");
       }
-      user.setPassword(resetRequest.getNewPassword());
+      user.setPassword(passwordEncoder.encode(resetRequest.getNewPassword()));
       this.updateUser(user);
       return ResponseEntity.status(HttpStatus.OK).body("Password is successfully reset");
     }

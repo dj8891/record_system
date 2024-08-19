@@ -36,7 +36,7 @@ public class RecordController {
       if (originalFilename != null && originalFilename.contains(".")) {
         // Split the file name by the dot and get the last part (extension)
         String extension = originalFilename.substring(originalFilename.lastIndexOf('.') + 1);
-        isVideo = extension.equals("avi");
+        isVideo = extension.equals("mp4");
       }
       RecordDTO recordDTO = new RecordDTO();
       // Create a LocalDateTime object with the specific value
