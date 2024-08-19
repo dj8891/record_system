@@ -1,5 +1,6 @@
 package com.springboot.record_system.service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -38,6 +39,7 @@ public class CallService {
                     String username = ipAddressOpt.map(IPSetting::getUserName).orElse("Unknown");
                     log.setUserName(username);
                 })
+                .sorted(Comparator.comparing(CallLog::getFromTime).reversed())
                 .collect(Collectors.toList());
 
         if (criteria.getSearchTerm() != null && !criteria.getSearchTerm().isEmpty()) {
