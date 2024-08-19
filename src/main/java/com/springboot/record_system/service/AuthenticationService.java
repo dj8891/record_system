@@ -6,7 +6,6 @@ import com.springboot.record_system.model.Role;
 import com.springboot.record_system.model.User;
 import com.springboot.record_system.dto.UserDTO;
 import com.springboot.record_system.repository.UserRepository;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -42,22 +41,21 @@ public class AuthenticationService {
     this.jwtService = jwtService;
   }
 
-//  public AuthenticationResponseDTO register(RegisterRequest request) {
-//    var user = User.builder()
-//        .firstname(request.getFirstName())
-//        .lastname(request.getLastName())
-//        .email(request.getEmail())
-//        .password(passwordEncoder.encode(request.getPassword()))
-//        .role(Role.ADMIN)
-//        .build();
-//    userRepository.save(user);
-//    var jwtToken = jwtService.generateToken(user);
-//    return AuthenticationResponseDTO.builder()
-//        .token(jwtToken)
-//        .build();
-//  }
+  public AuthenticationResponseDTO register(UserDTO request) {
+    User user = new User()
+        .setFirstName(request.getFirstName())
+        .setLastName(request.getLastName())
+        .setEmail(request.getEmail())
+        .setPassword(passwordEncoder.encode(request.getPassword()))
+        .setName(request.getName())
+        .setRole("USER");
+    userRepository.save(user);
+    var jwtToken = jwtService.generateToken(user);
+    return new AuthenticationResponseDTO()
+        .setToken(jwtToken);
+  }
 
-  public <Optional>User authenticate(UserDTO input, HttpServletRequest request) {
+  public <Optional>User authenticate(UserDTO input) {
     try {
       Authentication auth = authenticationManager.authenticate(
           new UsernamePasswordAuthenticationToken(

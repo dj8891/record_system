@@ -9,7 +9,8 @@ public class AuthenticationResponseDTO {
     return token;
   }
 
-  public void setToken(String token) {
+  public AuthenticationResponseDTO setToken(String token) {
     this.token = token;
+    return this;
   }
 }

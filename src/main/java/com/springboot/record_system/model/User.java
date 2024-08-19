@@ -20,12 +20,7 @@ public class User implements UserDetails {
   private String name;
   private Role role;
 
-  public Role getRole() {
-    return role;
-  }
-
-  public void setRole(Role role) {
-    this.role = role;
+  public User() {
   }
 
   public User(String id, String firstName, String lastName, String email, String password, String name) {
@@ -49,24 +44,27 @@ public class User implements UserDetails {
     return firstName;
   }
 
-  public void setFirstName(String firstName) {
+  public User setFirstName(String firstName) {
     this.firstName = firstName;
+    return this;
   }
 
   public String getLastName() {
     return lastName;
   }
 
-  public void setLastName(String lastName) {
+  public User setLastName(String lastName) {
     this.lastName = lastName;
+    return this;
   }
 
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(String email) {
+  public User setEmail(String email) {
     this.email = email;
+    return this;
   }
 
   @Override
@@ -103,15 +101,26 @@ public class User implements UserDetails {
     return true;
   }
 
-  public void setPassword(String password) {
+  public User setPassword(String password) {
     this.password = password;
+    return this;
   }
 
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
+  public User setName(String name) {
     this.name = name;
+    return this;
+  }
+
+  public Role getRole() {
+    return role;
+  }
+
+  public User setRole(String role) {
+    this.role = role.equals("admin") ? Role.ADMIN : Role.USER;
+    return this;
   }
 }

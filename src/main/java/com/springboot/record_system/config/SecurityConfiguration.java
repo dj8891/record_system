@@ -1,5 +1,6 @@
 package com.springboot.record_system.config;
 
+import com.springboot.record_system.model.Role;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
