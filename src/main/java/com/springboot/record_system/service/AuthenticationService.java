@@ -57,36 +57,18 @@ public class AuthenticationService {
 //        .build();
 //  }
 
-  public User authenticate(UserDTO input, HttpServletRequest request) {
-//    try {
-//      String pass = input.getPassword();
-//      String name = input.getName();
-//      Authentication auth = authenticationManager.authenticate(
-//          new UsernamePasswordAuthenticationToken(
-//              input.getName(),
-//              input.getPassword()
-//          )
-//      );
-//    } catch (AuthenticationException e) {
-//      System.out.println(e.getMessage());
-//    }
-//    return userRepository.findByName(input.getName())
-//        .orElseThrow();
-    User user = userRepository.findByName(input.getName()).orElseThrow(() -> new UsernameNotFoundException("UserName not found"));
-    if(passwordEncoder.matches(input.getPassword(), user.getPassword()))
-    {
-      UserDetails userDetails = this.userDetailsService.loadUserByUsername(input.getName());
-      UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-            userDetails,
-            null,
-            userDetails.getAuthorities()
-        );
-
-      authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-      SecurityContextHolder.getContext().setAuthentication(authToken);
-      return user;
+  public <Optional>User authenticate(UserDTO input, HttpServletRequest request) {
+    try {
+      Authentication auth = authenticationManager.authenticate(
+          new UsernamePasswordAuthenticationToken(
+              input.getName(),
+              input.getPassword()
+          )
+      );
+    } catch (AuthenticationException e) {
+      return null;
     }
-    else
-      return null ;
+    return userRepository.findByName(input.getName())
+        .orElseThrow();
   }
 }

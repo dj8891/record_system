@@ -1,7 +1,5 @@
 package com.springboot.record_system.controller;
 
-import com.springboot.record_system.model.IPSetting;
-import com.springboot.record_system.model.User;
 import org.springframework.web.bind.annotation.*;
 
 import com.springboot.record_system.dto.SearchCriteria;
