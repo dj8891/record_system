@@ -1,5 +1,6 @@
 package com.springboot.record_system.controller;
 
+import com.springboot.record_system.dto.FileUploadDTO;
 import com.springboot.record_system.model.CallLog;
 import com.springboot.record_system.service.FileProcessingService;
 import com.springboot.record_system.service.CallService;
@@ -25,42 +26,13 @@ public class RecordController {
 
   @PostMapping("/upload")
   public String uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("id") String id) {
-
+    String callUploadDir = "src/main/resources/static/upload/call/";
     if(file.isEmpty()) {
       return "Please select a file to upload";
     }
-    try {
-      String originalFilename = file.getOriginalFilename();
-      boolean isVideo = false;
-      // Check if the file name is not null and contains a dot
-      if (originalFilename != null && originalFilename.contains(".")) {
-        // Split the file name by the dot and get the last part (extension)
-        String extension = originalFilename.substring(originalFilename.lastIndexOf('.') + 1);
-        isVideo = extension.equals("mp4");
-      }
-      RecordDTO recordDTO = new RecordDTO();
-      // Create a LocalDateTime object with the specific value
-      LocalDateTime dateTime = recordDTO.getCurrentDateTime();
-
-      // Define the DateTimeFormatter to format the date part
-      DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-      // Extract the date part
-      String datePart = dateTime.format(dateFormatter);
-
-      // Extract the nanoseconds part and format it as a string
-      String nanosecondsPart = String.format("%09d", dateTime.getNano());
-
-      // Combine the date part and nanoseconds part
-      String result = datePart + "_" + nanosecondsPart;
-      String fileName = result + "_" + file.getOriginalFilename();
-
-      fileProcessingService.processFile(file.getInputStream(), fileName);
-      callService.updateRecord(id, isVideo, "upload/" + fileName);
-      return "File uploaded successfully: " + file.getOriginalFilename();
-    } catch (IOException e) {
-      return "File upload failed: " + e.getMessage();
-    }
+    FileUploadDTO fileUploadDTO = new FileUploadDTO(callUploadDir, file, id, true);
+    fileProcessingService.processFile(fileUploadDTO);
+    return "File uploaded successfully: " + file.getOriginalFilename();
   }
 
   @PostMapping("/create")

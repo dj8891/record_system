@@ -1,0 +1,1202 @@
+[{
+  "_id": {
+    "$oid": "66bcafd7952e9b3411e4414f"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:23:31.070Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:23:35.070Z"
+  },
+  "client": "2",
+  "company": "1",
+  "ipAddress": "192.168.8.109",
+  "nationality": "1",
+  "gender": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb149952e9b3411e44150"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:29:42.545Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:29:45.545Z"
+  },
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "ipAddress": "192.168.8.109",
+  "nationality": "1",
+  "gender": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb162952e9b3411e44151"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:30:06.993Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:30:10.993Z"
+  },
+  "client": "1",
+  "company": "1",
+  "isVideo": true,
+  "fileLocation": "uploads/result.avi",
+  "ipAddress": "192.168.8.109",
+  "nationality": "1",
+  "gender": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb3fd1cbd7b2438b614e3"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:41:15.667Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:41:17.667Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb4001cbd7b2438b614e4"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:41:18.864Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:41:20.864Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb4011cbd7b2438b614e5"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:41:19.724Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:41:21.724Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb4021cbd7b2438b614e6"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:41:20.256Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:41:22.256Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb4021cbd7b2438b614e7"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:41:20.570Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:41:22.570Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb4021cbd7b2438b614e8"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:41:20.757Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:41:22.757Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb4021cbd7b2438b614e9"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:41:20.920Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:41:22.920Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb4501cbd7b2438b614ea"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:42:38.574Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:42:40.574Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb53ec2ea205d9b51ea95"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:46:37.071Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:46:38.071Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "1",
+  "company": "1",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "1",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcb602c2ea205d9b51ea96"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T03:49:51.005Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T03:49:54.005Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "3",
+  "company": "3",
+  "isVideo": true,
+  "gender": true,
+  "fileLocation": "uploads/result.avi",
+  "nationality": "3",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bcbb8a5ffa2801ab0efc7b"
+  },
+  "fromTime": {
+    "$date": "2024-08-15T04:06:38.309Z"
+  },
+  "toTime": {
+    "$date": "2024-08-15T04:13:30.309Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "Anna Suvorova",
+  "company": "Planet Lex AA",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "United States",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66be1a0f4a68a70af570b3f6"
+  },
+  "fromTime": {
+    "$date": "2024-08-16T05:08:12.447Z"
+  },
+  "toTime": {
+    "$date": "2024-08-16T05:09:03.447Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66be2a2c5f33c63d08f4ff9b"
+  },
+  "fromTime": {
+    "$date": "2024-08-16T06:17:43.493Z"
+  },
+  "toTime": {
+    "$date": "2024-08-16T06:17:48.493Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "123123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf64646520985713cca11a"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T06:36:01.722Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T06:38:28.722Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf65d06520985713cca11b"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T06:42:34.386Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T06:44:32.386Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "Rose",
+  "company": "Demand",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "US",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf6c98ce2a3621cb6fb785"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T07:12:42.750Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T07:13:28.750Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf6d7bce2a3621cb6fb786"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T07:13:37.833Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T07:17:15.833Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf7057ce2a3621cb6fb787"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T07:21:54.681Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T07:29:27.681Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.wav",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf77afce2a3621cb6fb788"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:00:44.759Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:00:47.759Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "test",
+  "company": "test",
+  "gender": true,
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf7825ce2a3621cb6fb789"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:02:43.024Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:02:45.024Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "test",
+  "company": "test",
+  "gender": true,
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf78bbce2a3621cb6fb78a"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:05:08.581Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:05:15.582Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": true,
+  "gender": true,
+  "fileLocation": "uploads/result.avi",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf78e1ce2a3621cb6fb78b"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:05:48.361Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:05:53.361Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "gender": true,
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf796dce2a3621cb6fb78c"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:08:07.631Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:08:13.631Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "gender": true,
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf79c8ce2a3621cb6fb78d"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:09:34.543Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:09:44.544Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123123",
+  "company": "123",
+  "gender": true,
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf7b02ce2a3621cb6fb78e"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:14:52.271Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:14:58.272Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "gender": true,
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf7c55ce2a3621cb6fb78f"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:20:33.071Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:20:37.071Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": true,
+  "gender": true,
+  "fileLocation": "uploads/result.avi",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf7e8cce2a3621cb6fb790"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:30:01.562Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:30:04.562Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": true,
+  "gender": true,
+  "fileLocation": "uploads/result.avi",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf7f12ce2a3621cb6fb791"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:32:14.664Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:32:18.664Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": true,
+  "gender": true,
+  "fileLocation": "uploads/result.avi",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf7f1ace2a3621cb6fb792"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:32:22.618Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:32:26.618Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "23",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.mp3",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf815ece2a3621cb6fb793"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T08:41:56.490Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T08:42:06.490Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/combined_audio.mp3",
+  "nationality": "teset",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf8ce742abde2510fb3443"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T09:31:12.784Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T09:31:19.784Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_881145100_combined_audio.mp3",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf8f0f42abde2510fb3444"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T09:40:29.628Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T09:40:31.628Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_639377600_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf918f3de82c6ca9261c76"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T09:51:09.702Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T09:51:11.702Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_813854000_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf97f53de82c6ca9261c77"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T10:18:28.725Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T10:18:29.725Z"
+  },
+  "ipAddress": "192.168.8.110",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_747403900_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf99ea3de82c6ca9261c78"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T10:26:47.113Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T10:26:50.113Z"
+  },
+  "ipAddress": "192.168.8.110",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_132838600_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bf9ad53de82c6ca9261c79"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T10:30:44.984Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T10:30:45.984Z"
+  },
+  "ipAddress": "192.168.8.110",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_016495300_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfab70250d8e050b669097"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T11:31:37.592Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T11:41:36.592Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_742092500_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfcfd310cf9473758299a4"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:16:46.551Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:16:51.551Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_670301700_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfcff910cf9473758299a5"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:17:29.294Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:17:29.294Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "sdfsdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_305067200_combined_audio.mp3",
+  "nationality": "etess",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd17bcf7cc722073532f1"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:23:54.632Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:23:55.632Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_751440000_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd1c7b1f970633a38c9fe"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:25:09.975Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:25:10.975Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_076346500_combined_audio.mp3",
+  "nationality": "testt",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd1e7b1f970633a38c9ff"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:25:40.677Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:25:43.677Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "sfsdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_691875300_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd218443116138fde9f2e"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:26:31.022Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:26:32.022Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "ts",
+  "company": "stst",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_129804700_combined_audio.mp3",
+  "nationality": "tst",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd254f932c7173aa2dc42"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:27:31.251Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:27:32.251Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "d",
+  "company": "dd",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_354490300_combined_audio.mp3",
+  "nationality": "dd",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd271f932c7173aa2dc43"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:28:00.214Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:28:01.214Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "sfdsfsafas",
+  "company": "sdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_226991500_combined_audio.mp3",
+  "nationality": "sdfsd",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd29063ccf47bb2179747"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:28:31.855Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:28:32.855Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "asdfasdfas",
+  "company": "asdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_950058100_combined_audio.mp3",
+  "nationality": "asdfas",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd2ad63ccf47bb2179748"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:29:01.779Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:29:01.779Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "asdfafasd",
+  "company": "asdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_791391600_combined_audio.mp3",
+  "nationality": "asdfa",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd305b6b8df14a83d9c27"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:30:28.263Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:30:29.263Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "erte",
+  "company": "wert",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_378509200_combined_audio.mp3",
+  "nationality": "twertwertwert",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd31cb6b8df14a83d9c28"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:30:51.925Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:30:52.925Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "asdfa",
+  "company": "asdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_937233600_combined_audio.mp3",
+  "nationality": "dfas",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd3452db79a7b4912a091"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:31:32.129Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:31:33.129Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "asdf",
+  "company": "asdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_234369300_combined_audio.mp3",
+  "nationality": "fasdfa",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66bfd39272f6284fa99470dd"
+  },
+  "fromTime": {
+    "$date": "2024-08-17T14:32:49.033Z"
+  },
+  "toTime": {
+    "$date": "2024-08-17T14:32:50.033Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "asdfsad",
+  "company": "asdf",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_134599100_combined_audio.mp3",
+  "nationality": "asdfa",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c07a774396556dca3b580d"
+  },
+  "fromTime": {
+    "$date": "2024-08-18T02:24:54.354Z"
+  },
+  "toTime": {
+    "$date": "2024-08-18T02:24:55.354Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "uploads/2024-08-17_477338700_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c07b9f2c2e425cb46a036e"
+  },
+  "fromTime": {
+    "$date": "2024-08-18T02:29:50.112Z"
+  },
+  "toTime": {
+    "$date": "2024-08-18T02:29:51.112Z"
+  },
+  "ipAddress": "192.168.8.171",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "upload/2024-08-17_235351400_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c232b642e073464c0a3424"
+  },
+  "fromTime": {
+    "$date": "2024-08-19T09:43:14.434Z"
+  },
+  "toTime": {
+    "$date": "2024-08-19T09:43:18.434Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "123",
+  "company": "123",
+  "isVideo": true,
+  "gender": true,
+  "fileLocation": "upload/2024-08-19_498505700_result.mp4",
+  "nationality": "123",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c364b326d21854a73028a6"
+  },
+  "fromTime": {
+    "$date": "2024-08-20T07:27:48.746Z"
+  },
+  "toTime": {
+    "$date": "2024-08-20T07:28:51.747Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "Steven",
+  "company": "Plano",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "upload/2024-08-20_794931500_combined_audio.mp3",
+  "nationality": "US",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c3bd779a67807a9fd06c49"
+  },
+  "fromTime": {
+    "$date": "2024-08-20T13:36:56.870Z"
+  },
+  "toTime": {
+    "$date": "2024-08-20T13:47:35.870Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "6788480499",
+  "company": "Full Stack Dev Company",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "upload/2024-08-20_006017600_combined_audio.mp3",
+  "nationality": "US",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c49f709a67807a9fd06c4b"
+  },
+  "fromTime": {
+    "$date": "2024-08-21T05:39:37.059Z"
+  },
+  "toTime": {
+    "$date": "2024-08-21T05:51:44.059Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "Yagmur Allar",
+  "company": "innoscripta",
+  "isVideo": false,
+  "gender": false,
+  "fileLocation": "upload/2024-08-20_062398700_combined_audio.mp3",
+  "nationality": "Germany",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c4ae0a9a67807a9fd06c4c"
+  },
+  "fromTime": {
+    "$date": "2024-08-21T06:52:32.891Z"
+  },
+  "toTime": {
+    "$date": "2024-08-21T06:54:02.891Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "+16312674883",
+  "company": "Disney",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "upload/2024-08-20_921104600_combined_audio.mp3",
+  "nationality": "US",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c655c29a67807a9fd06c4d"
+  },
+  "fromTime": {
+    "$date": "2024-08-22T13:00:58.156Z"
+  },
+  "toTime": {
+    "$date": "2024-08-22T13:01:54.156Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "Recruiter",
+  "company": "Company in MO",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "upload/2024-08-22_184077400_combined_audio.mp3",
+  "nationality": "US",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c76cc1dec3065a4d166b8f"
+  },
+  "fromTime": {
+    "$date": "2024-08-23T08:46:01.167Z"
+  },
+  "toTime": {
+    "$date": "2024-08-23T08:52:17.167Z"
+  },
+  "ipAddress": "192.168.8.226",
+  "client": "Amit",
+  "company": "Jankit",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "upload/2024-08-23_358417700_combined_audio.mp3",
+  "nationality": "US",
+  "_class": "com.springboot.record_system.model.CallLog"
+},
+{
+  "_id": {
+    "$oid": "66c7dad8dec3065a4d166b90"
+  },
+  "fromTime": {
+    "$date": "2024-08-23T16:24:05.887Z"
+  },
+  "toTime": {
+    "$date": "2024-08-23T16:42:00.887Z"
+  },
+  "ipAddress": "192.168.8.109",
+  "client": "test",
+  "company": "test",
+  "isVideo": false,
+  "gender": true,
+  "fileLocation": "upload/2024-08-23_368859900_combined_audio.mp3",
+  "nationality": "test",
+  "_class": "com.springboot.record_system.model.CallLog"
+}]

@@ -33,15 +33,15 @@ public class CallService {
     }
 
     public List<CallLog> searchLogs(SearchCriteria criteria) {
-        List<CallLog> logs = callLogRepository.findAll().stream()
-                .peek(log -> {
-                    Optional<IPSetting> ipAddressOpt = ipRepository.findOneByIpAddress(log.getIpAddress());
-                    String username = ipAddressOpt.map(IPSetting::getUserName).orElse("Unknown");
-                    log.setUserName(username);
-                })
-                .sorted(Comparator.comparing(CallLog::getFromTime).reversed())
-                .collect(Collectors.toList());
-
+//        List<CallLog> logs = callLogRepository.findAll().stream()
+//                .peek(log -> {
+//                    Optional<IPSetting> ipAddressOpt = ipRepository.findOneByIpAddress(log.getIpAddress());
+//                    String username = ipAddressOpt.map(IPSetting::getUserName).orElse("Unknown");
+//                    log.setUserName(username);
+//                })
+//                .sorted(Comparator.comparing(CallLog::getFromTime).reversed())
+//                .collect(Collectors.toList());
+        List<CallLog> logs = callLogRepository.findCallLogWithUserName();
         if (criteria.getSearchTerm() != null && !criteria.getSearchTerm().isEmpty()) {
             logs = logs.stream()
                     .filter(log -> log.getClient().contains(criteria.getSearchTerm()) ||
@@ -78,13 +78,16 @@ public class CallService {
         callLog.setGender(gender);
         callLog.setIpAddress(recordDTO.getIpAddress());
         callLog.setNationality(recordDTO.getNationality());
+        callLog.setDuration(Long.parseLong(recordDTO.getDuration()));
         return callLogRepository.save(callLog);
     }
 
-    public CallLog updateRecord(String id, boolean isVideo, String fileLocation) {
+    public void updateRecord(String id, boolean isVideo, String fileLocation) {
         CallLog callLog = callLogRepository.findById(id).orElseThrow(() -> new RuntimeException("Document not found"));
         callLog.setVideo(isVideo);
         callLog.setFileLocation(fileLocation);
-        return callLogRepository.save(callLog);
+        callLogRepository.save(callLog);
     }
 }
+
+

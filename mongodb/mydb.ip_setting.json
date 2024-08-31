@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "66c33e4526d21854a73028a5"
+  },
+  "ipAddress": "192.168.8.111",
+  "userName": "Pord",
+  "_class": "com.springboot.record_system.model.IPSetting"
+},
+{
+  "_id": {
+    "$oid": "66c372fc26d21854a73028a7"
+  },
+  "ipAddress": "192.168.8.226",
+  "userName": "i@amfood",
+  "_class": "com.springboot.record_system.model.IPSetting"
+},
+{
+  "_id": {
+    "$oid": "66c3745a26d21854a73028a8"
+  },
+  "ipAddress": "192.168.8.109",
+  "userName": "Duty",
+  "_class": "com.springboot.record_system.model.IPSetting"
+},
+{
+  "_id": {
+    "$oid": "66c374c726d21854a73028a9"
+  },
+  "ipAddress": "192.168.8.163",
+  "userName": "Diana",
+  "_class": "com.springboot.record_system.model.IPSetting"
+},
+{
+  "_id": {
+    "$oid": "66c374d826d21854a73028aa"
+  },
+  "ipAddress": "192.168.8.126",
+  "userName": "PUMA",
+  "_class": "com.springboot.record_system.model.IPSetting"
+},
+{
+  "_id": {
+    "$oid": "66c374e626d21854a73028ab"
+  },
+  "ipAddress": "192.168.8.110",
+  "userName": "mage",
+  "_class": "com.springboot.record_system.model.IPSetting"
+},
+{
+  "_id": {
+    "$oid": "66c4093c9a67807a9fd06c4a"
+  },
+  "ipAddress": "192.168.8.171",
+  "userName": "k",
+  "_class": "com.springboot.record_system.model.IPSetting"
+}]

@@ -1,6 +1,7 @@
 package com.springboot.record_system.config;
 
 import com.springboot.record_system.service.JwtService;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -69,7 +70,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       }
 
       filterChain.doFilter(request, response);
-    } catch (Exception exception) {
+    } catch (ExpiredJwtException e) {
+      response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+      response.getWriter().write("Token Expired");
+      response.getWriter().flush();
+    }
+    catch (Exception exception) {
       handlerExceptionResolver.resolveException(request, response, null, exception);
     }
   }

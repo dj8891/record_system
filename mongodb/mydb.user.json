@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "66be1e3bfb87dc0ec7566699"
+  },
+  "lastName": "Dev",
+  "email": "secdev@gmail.com",
+  "password": "$2a$10$EgKM30I4xAATSMrWN43LEek6hCZPVFA67DTIg6DDux3V4jx9CHn7O",
+  "name": "admin",
+  "role": "ADMIN",
+  "_class": "com.springboot.record_system.model.User"
+}]

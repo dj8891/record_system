@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Document(collection = "log")
@@ -22,6 +23,21 @@ public class CallLog {
     private String fileLocation;
     private String caption;
     private String nationality;
+    private String duration;
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(long seconds) {
+        Duration duration = Duration.ofSeconds(seconds);
+        long hours = duration.toHours();
+        long minutes = duration.toMinutesPart();
+        long remainingSeconds = duration.toSecondsPart();
+
+        // Format the result as hh:mm:ss
+        this.duration = String.format("%02d:%02d:%02d", hours, minutes, remainingSeconds);
+    }
 
     public String getId() {
         return id;
