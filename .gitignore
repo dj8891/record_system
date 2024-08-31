@@ -34,3 +34,4 @@ build/
 
 ### uploads ###
 uploads/
+**/src/main/resources/static/upload/
