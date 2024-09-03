@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$date": "2024-09-03T17:47:02.029Z"
+  },
+  "toDate": {
+    "$date": "2024-09-03T18:02:56.232Z"
+  },
+  "fileLocation": "upload/video/Duty/2024-09-04-03-02-56_685882200.mp4",
+  "ipAddress": "192.168.8.109",
+  "name": "Duty",
+  "_class": "com.springboot.record_system.model.VideoLog"
+},
+{
+  "_id": {
+    "$date": "2024-09-03T18:02:57.262Z"
+  },
+  "toDate": {
+    "$date": "2024-09-03T18:12:55.994Z"
+  },
+  "fileLocation": "upload/video/Duty/2024-09-04-03-12-56_593126900.mp4",
+  "ipAddress": "192.168.8.109",
+  "name": "Duty",
+  "_class": "com.springboot.record_system.model.VideoLog"
+},
+{
+  "_id": {
+    "$date": "2024-09-03T18:12:57.048Z"
+  },
+  "toDate": {
+    "$date": "2024-09-03T18:22:55.656Z"
+  },
+  "fileLocation": "upload/video/Duty/2024-09-04-03-22-56_590815100.mp4",
+  "ipAddress": "192.168.8.109",
+  "name": "Duty",
+  "_class": "com.springboot.record_system.model.VideoLog"
+},
+{
+  "_id": {
+    "$date": "2024-09-03T18:22:56.677Z"
+  },
+  "toDate": {
+    "$date": "2024-09-03T18:32:56.398Z"
+  },
+  "fileLocation": "upload/video/Duty/2024-09-04-03-32-56_583066300.mp4",
+  "ipAddress": "192.168.8.109",
+  "name": "Duty",
+  "_class": "com.springboot.record_system.model.VideoLog"
+},
+{
+  "_id": {
+    "$date": "2024-09-03T18:32:57.422Z"
+  },
+  "toDate": {
+    "$date": "2024-09-03T18:34:51.500Z"
+  },
+  "fileLocation": "upload/video/Duty/2024-09-04-03-42-56_566813300.mp4",
+  "ipAddress": "192.168.8.109",
+  "name": "Duty",
+  "_class": "com.springboot.record_system.model.VideoLog"
+}]
