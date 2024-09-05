@@ -23,7 +23,7 @@ public interface VideoLogRepository extends MongoRepository<VideoLog, String> {
     @Aggregation(pipeline = {
             "{ '$match': { 'fromDate': { '$gte': ?1, '$lt': ?2 } }, 'name': ?0 }",
             "{ '$lookup': { 'from': 'detect_log', 'let': { 'startDate': '$fromDate', 'endDate': '$toDate' }, " +
-                    "''} }",
+                    "'pipeline'} }",
             "{ '$unwind': { 'path': '$ipAddress', 'preserveNullAndEmptyArrays': true } }",
             "{ '$match': { 'ipAddress.userName': ?0 } }",
             "{ '$addFields': { 'userName': '$ipAddress.userName', 'ipAddress': '$ipAddress.ipAddress' } }"
