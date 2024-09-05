@@ -18,7 +18,6 @@ public class VideoLog {
     private List<String> urls;
     private int keyCount;
     private int mouseCount;
-    private List<DetectLog> detectLogs;
 
     public VideoLog(Date fromDate, Date toDate, String fileLocation, String ipAddress, String name) {
         this.fromDate = fromDate;

@@ -21,10 +21,10 @@ public class DetectService {
 
     public void updateRecord(DetectDTO detectDTO, String fileLocation) {
         DetectLog detectLog = new DetectLog();
-        detectLog.setBtnClicked(detectDTO.getBtnClicked());
+        detectLog.setBtnClicked(detectDTO.isBtnClicked());
         detectLog.setUrl(detectDTO.getUrl());
         detectLog.setIpAddress(detectDTO.getIpAddress());
-        detectLog.setKeyPressed(detectDTO.getKeyPressed());
+        detectLog.setKeyPressed(detectDTO.isKeyPressed());
         RecordDTO recordDTO = new RecordDTO();
 
         LocalDateTime asiaTime = recordDTO.getCurrentDateTime();

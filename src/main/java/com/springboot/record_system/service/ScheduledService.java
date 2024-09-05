@@ -59,8 +59,8 @@ public class ScheduledService {
             detectTime = LocalDateTime.of(localTime.getYear(), localTime.getMonth(), localTime.getDayOfMonth(), localTime.getHour() + 1, 0, 0);
         } else detectTime = LocalDateTime.of(localTime.getYear(), localTime.getMonth(), localTime.getDayOfMonth(), localTime.getHour(), nearMin, 0);
         long difSeconds = Duration.between(localTime, detectTime).getSeconds();
-        ScheduledFuture<?> firstScheduledFuture = threadPoolTaskScheduler.scheduleAtFixedRate(this::firstTask, Instant.now().plusSeconds(difSeconds), Duration.ofSeconds(600000));
-        ScheduledFuture<?> secondScheduledFuture = threadPoolTaskScheduler.scheduleAtFixedRate(this::secondTask, Instant.now().plusSeconds(difSeconds), Duration.ofSeconds(600000));
+        ScheduledFuture<?> firstScheduledFuture = threadPoolTaskScheduler.scheduleAtFixedRate(this::firstTask, Instant.now().plusSeconds(difSeconds), Duration.ofSeconds(600));
+        ScheduledFuture<?> secondScheduledFuture = threadPoolTaskScheduler.scheduleAtFixedRate(this::secondTask, Instant.now().plusSeconds(difSeconds), Duration.ofSeconds(600));
     }
 
     @Async
@@ -82,10 +82,12 @@ public class ScheduledService {
                     Date beforeDate = utilityService.convertLocalDateTimeToUtc(beforeDateTime);
                     List<DetectLog> detectList = detectLogRepository.findByIpAddressAndLogTimeBetweenOrderByLogTimeAsc(ipAddress, beforeDate, currentDate);
                     if(!detectList.isEmpty()) {
-                        File imageListFile = new File("src/main/resources/static/upload/detect/", userName + "images.txt");
+                        String absoluteFile = Paths.get("src/main/resources/static/upload/detect/" + userName + "images.txt").toAbsolutePath().toString();
+                        File imageListFile = new File(absoluteFile);
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(imageListFile))) {
                             for (DetectLog detectLog : detectList) {
-                                File imgFile = new File("src/main/resources/static/" + detectLog.getFileLocation());
+                                String abFile = Paths.get("src/main/resources/static/" + detectLog.getFileLocation()).toAbsolutePath().toString();
+                                File imgFile = new File(abFile);
                                 if (imgFile.exists() && imgFile.length() != 0) {
                                     writer.write("file '" + imgFile.getAbsolutePath() + "'");
                                     writer.newLine();
@@ -114,11 +116,11 @@ public class ScheduledService {
 
                         // Combine the date part and nanoseconds part
                         String result = datePart + "_" + nanosecondsPart;
-                        String relativePath = "src/main/resources/static/upload/video/" + userName;
+                        String relativePath = "src/main/resources/static/upload/video/" + userName + "/";
                         String absolutePath = Paths.get(relativePath).toAbsolutePath().toString();
 
                         ProcessBuilder processBuilder = new ProcessBuilder(
-                                "ffmpeg",
+                                "C:\\Program Files\\ffmpeg-7.0.2-essentials_build\\bin\\ffmpeg.exe",
                                 "-r", "2",
                                 "-f", "concat",
                                 "-safe", "0",
@@ -142,14 +144,15 @@ public class ScheduledService {
                                 videoLogRepository.save(videoLog);
 
                                 for(DetectLog detectLog: detectList) {
-                                    File newFile = new File("src/main/resources/static/" + detectLog.getFileLocation());
+                                    String absoluteDeletePath = Paths.get("src/main/resources/static/" + detectLog.getFileLocation()).toAbsolutePath().toString();
+                                    File newFile = new File(absoluteDeletePath);
                                     if(newFile.exists()) {
                                         boolean isDelete = newFile.delete();
                                     }
                                 }
 
                                 // delete detect data used to make video from database
-                                detectLogRepository.deleteAll(detectList);
+//                                detectLogRepository.deleteAll(detectList);
                             } else {
                                 System.out.println("Video creation failed with code " + exitCode);
                             }

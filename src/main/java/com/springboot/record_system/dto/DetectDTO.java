@@ -4,8 +4,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class DetectDTO {
     private String url;
-    private boolean keyPressed;
-    private boolean btnClicked;
+    private boolean isKeyPressed;
+    private boolean isBtnClicked;
     private String ipAddress;
 
     public String getUrl() {
@@ -16,20 +16,20 @@ public class DetectDTO {
         this.url = url;
     }
 
-    public boolean getKeyPressed() {
-        return keyPressed;
+    public boolean isKeyPressed() {
+        return isKeyPressed;
     }
 
     public void setKeyPressed(boolean keyPressed) {
-        this.keyPressed = keyPressed;
+        isKeyPressed = keyPressed;
     }
 
-    public boolean getBtnClicked() {
-        return btnClicked;
+    public boolean isBtnClicked() {
+        return isBtnClicked;
     }
 
     public void setBtnClicked(boolean btnClicked) {
-        this.btnClicked = btnClicked;
+        isBtnClicked = btnClicked;
     }
 
     public String getIpAddress() {

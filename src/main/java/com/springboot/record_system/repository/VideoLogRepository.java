@@ -10,25 +10,19 @@ import java.util.List;
 
 @Repository
 public interface VideoLogRepository extends MongoRepository<VideoLog, String> {
+
 //    @Aggregation(pipeline = {
-//            "{ '$match': { 'fromDate': { '$gte': ?1, '$lt': ?2 }, 'name': ?0 } }",
-//            "{ '$lookup': { 'from': 'detect_log', 'let': { 'ip': '$ipAddress', 'start': '$fromDate', 'end': '$toDate' }, " +
-//                    "'pipeline': [ { '$match': { '$expr': { '$and': [ { '$eq': ['$ipAddress', '$$ip'] }, " +
-//                    { '$gte': ['$logTime', '$$start'] }, { '$lte': ['$logTime', '$$end'] } ] } }, " +
-//        "{ '$project': { 'logTime': 1, 'userName': 1, 'ipAddress': 1 } } ], 'as': 'ipAddress' } }",
-//        "{ '$unwind': { 'path': '$ipAddress', 'preserveNullAndEmptyArrays': true } }",
-//        "{ '$match': { 'ipAddress.userName': ?0 } }",
-//        "{ '$addFields': { 'userName': '$ipAddress.userName', 'ipAddress': '$ipAddress.ipAddress' } }"
-//        })
-    @Aggregation(pipeline = {
-            "{ '$match': { 'fromDate': { '$gte': ?1, '$lt': ?2 } }, 'name': ?0 }",
-            "{ '$lookup': { 'from': 'detect_log', 'let': { 'startDate': '$fromDate', 'endDate': '$toDate' }, " +
-                    "'pipeline'} }",
-            "{ '$unwind': { 'path': '$ipAddress', 'preserveNullAndEmptyArrays': true } }",
-            "{ '$match': { 'ipAddress.userName': ?0 } }",
-            "{ '$addFields': { 'userName': '$ipAddress.userName', 'ipAddress': '$ipAddress.ipAddress' } }"
-    })
-    public List<VideoLog> findByFromDateBetweenAndName(String name, Date startDate, Date toDate);
+//            "{ '$match': { 'name': ?0, 'fromDate': { '$gte': ?1 } } }",  // Corrected name filter
+//            "{ '$lookup': { 'from': 'detect_log', 'let': { 'startDate': '$fromDate', 'endDate': '$toDate' }, " +
+//                    "'pipeline': [ " +
+//                    "{ '$match': { '$expr': { '$and': [ " +
+//                    "{ '$gte': ['$logTime', '$$startDate'] }, " +   // Fixed comparison expressions
+//                    "{ '$lt': ['$logTime', '$$endDate'] } ] } } } " +
+//                    "], 'as': 'detectLogs' } }",
+//            "{ '$unwind': { 'path': '$detectLogs', 'preserveNullAndEmptyArrays': true } }",  // Unwind with null preservation
+//            "{ '$project': { 'fromDate': 1, 'toDate': 1, 'detectLogs': 1, 'fileLocation': 1 } }"
+//    })
+    public List<VideoLog> findByNameAndFromDateBetween(String name, Date fromDate, Date toDate);
     public boolean existsByFromDateBetweenAndName(Date startDate, Date endDate, String name);
     public List<VideoLog> findAllByFromDateBetweenAndName(Date startDate, Date endDate, String name);
 }

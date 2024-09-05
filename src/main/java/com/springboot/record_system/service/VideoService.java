@@ -14,6 +14,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @Service
 public class VideoService {
@@ -39,12 +41,29 @@ public class VideoService {
         LocalDateTime toDateTime = LocalDateTime.of(localDate.getYear(), localDate.getMonth(), (localDate.getDayOfMonth() + 1), 0, 0, 0);
         Date fromDate = utilityService.convertLocalDateTimeToUtc(fromDateTime);
         Date toDate = utilityService.convertLocalDateTimeToUtc(toDateTime);
-        List<VideoLog> videoLogs = videoLogRepository.findByFromDateBetweenAndName(name, fromDate, toDate).stream()
+        List<VideoLog> videos = videoLogRepository.findByNameAndFromDateBetween(name, fromDate, toDate).stream()
                 .peek(log -> {
-                    Date fromDate = log.getFromDate();
-                    Date toDate = log.getToDate();
-                    List<DetectLog> detectLogs = detectLogRepository
-                })
-        return videoLogs;
+                    List<DetectLog> detectLogs = detectLogRepository.findByIpAddressAndLogTimeBetweenOrderByLogTimeAsc(log.getIpAddress(), log.getFromDate(), log.getToDate());
+                    AtomicInteger keyCnt = new AtomicInteger();
+                    AtomicInteger mouseCnt = new AtomicInteger();
+                    List<String> urls = new ArrayList<>();
+                    String previousUrl = "";
+                    if (!detectLogs.isEmpty()) {
+                        for (DetectLog detectLog : detectLogs) {
+                            if (detectLog.isKeyPressed()) keyCnt.getAndIncrement();
+                            if (detectLog.isBtnClicked()) mouseCnt.getAndIncrement();
+
+                            String curUrl = detectLog.getUrl();
+                            if (curUrl != null && !curUrl.equals(previousUrl) && !urls.contains(curUrl)) {
+                                urls.add(curUrl);
+                                previousUrl = curUrl;
+                            }
+                        }
+                    }
+                    log.setKeyCount(keyCnt.get());
+                    log.setMouseCount(mouseCnt.get());
+                    log.setUrls(urls);
+                }).collect(Collectors.toList());
+        return videos;
     }
 }
