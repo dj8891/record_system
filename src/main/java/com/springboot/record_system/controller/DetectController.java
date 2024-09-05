@@ -14,7 +14,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -40,7 +45,7 @@ public class DetectController {
     }
 
     @PostMapping("/create")
-    public String uploadFile(@RequestParam("data") String detectStr, @ModelAttribute("file") MultipartFile file, HttpServletRequest request) throws JsonProcessingException {
+    public String uploadFile(@RequestParam("data") String detectStr, @ModelAttribute("file") MultipartFile file, HttpServletRequest request) throws IOException {
         String uploadDir = "src/main/resources/static/upload/detect/";
         DetectDTO detectDTO = objectMapper.readValue(detectStr, DetectDTO.class);
         if(file.isEmpty()) {

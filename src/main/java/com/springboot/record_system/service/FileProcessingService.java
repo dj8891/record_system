@@ -2,7 +2,6 @@ package com.springboot.record_system.service;
 
 import com.springboot.record_system.dto.FileUploadDTO;
 import com.springboot.record_system.dto.RecordDTO;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,8 +23,7 @@ public class FileProcessingService {
     this.detectService = detectService;
   }
 
-  @Async
-  public void processFile(FileUploadDTO fileUploadDTO) {
+  public void processFile(FileUploadDTO fileUploadDTO) throws IOException {
     MultipartFile file = fileUploadDTO.getFile();
     String UPLOAD_DIR = fileUploadDTO.getUploadDir();
 
@@ -58,17 +56,18 @@ public class FileProcessingService {
       boolean dir = uploadDir.mkdirs();
       System.out.println(dir);
     }
-    Path filePath = Paths.get(UPLOAD_DIR + fileName);
-    try ( OutputStream outputStream = Files.newOutputStream(filePath) ) {
-      byte[] buffer = new byte[1024];
-      int bytesRead;
-      InputStream inputStream = file.getInputStream();
-      while((bytesRead = inputStream.read(buffer)) != -1) {
-        outputStream.write(buffer, 0, bytesRead);
+    try {
+      if (file.isEmpty()) {
+        throw new RuntimeException("Failed to upload empty file.");
       }
+
+      byte[] bytes = file.getBytes();
+      Path path = Paths.get(UPLOAD_DIR + fileName);
+      Files.write(path, bytes);
     } catch (IOException e) {
-      System.out.println("server error: " + e.getMessage());
+      throw new RuntimeException("Failed to store file.", e);
     }
+
     if(fileUploadDTO.isCall())
       callService.updateRecord(fileUploadDTO.getId(), isVideo, "upload/call/" + fileName);
     else {

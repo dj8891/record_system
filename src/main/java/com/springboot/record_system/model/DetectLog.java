@@ -3,7 +3,10 @@ package com.springboot.record_system.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
 
 @Document(collection = "detect_log")
 public class DetectLog {
@@ -14,7 +17,7 @@ public class DetectLog {
     private boolean isKeyPressed;
     private boolean isBtnClicked;
     private String fileLocation;
-    private LocalDateTime logTime;
+    private Date logTime;
     private String ipAddress;
 
     public DetectLog() {
@@ -60,11 +63,11 @@ public class DetectLog {
         this.fileLocation = fileLocation;
     }
 
-    public LocalDateTime getLogTime() {
+    public Date  getLogTime() {
         return logTime;
     }
 
-    public void setLogTime(LocalDateTime logTime) {
+    public void setLogTime(Date  logTime) {
         this.logTime = logTime;
     }
 

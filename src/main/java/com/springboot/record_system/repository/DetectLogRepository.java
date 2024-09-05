@@ -2,6 +2,7 @@ package com.springboot.record_system.repository;
 
 import com.springboot.record_system.model.CallLog;
 import com.springboot.record_system.model.DetectLog;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,7 @@ public interface DetectLogRepository extends MongoRepository<DetectLog, String> 
             "{ '$match': { 'ipAddress.userName': ?0 } }",
             "{ '$addFields': { 'userName': '$ipAddress.userName', 'ipAddress': '$ipAddress.ipAddress' } }"
     })
-    List<DetectLog> findDetectLogWithUserNameAndTime(String name, LocalDateTime fromTime, LocalDateTime toTime);
+    List<DetectLog> findDetectLogWithUserNameAndTime(String name, Date fromTime, Date toTime);
 
-    List<DetectLog> findAllByIpAddressOrderByLogTimeAsc(String ipAddress);
+    List<DetectLog> findByIpAddressAndLogTimeBetweenOrderByLogTimeAsc(String ipAddress, Date startTime, Date endTime);
 }

@@ -3,23 +3,37 @@ package com.springboot.record_system.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
 @Document("video_log")
 public class VideoLog {
     @Id
-    private LocalDateTime fromDate;
-    private LocalDateTime toDate;
+    private String id;
+    private Date fromDate;
+    private Date toDate;
     private String fileLocation;
     private String ipAddress;
     private String name;
+    private List<String> urls;
+    private int keyCount;
+    private int mouseCount;
+    private List<DetectLog> detectLogs;
 
-    public VideoLog(LocalDateTime fromDate, LocalDateTime toDate, String fileLocation, String ipAddress, String name) {
+    public VideoLog(Date fromDate, Date toDate, String fileLocation, String ipAddress, String name) {
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.fileLocation = fileLocation;
         this.ipAddress = ipAddress;
         this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -30,19 +44,19 @@ public class VideoLog {
         this.name = name;
     }
 
-    public LocalDateTime getFromDate() {
+    public Date getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(LocalDateTime fromDate) {
+    public void setFromDate(Date fromDate) {
         this.fromDate = fromDate;
     }
 
-    public LocalDateTime getToDate() {
+    public Date getToDate() {
         return toDate;
     }
 
-    public void setToDate(LocalDateTime toDate) {
+    public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
 
@@ -60,5 +74,29 @@ public class VideoLog {
 
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
+    }
+
+    public List<String> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<String> urls) {
+        this.urls = urls;
+    }
+
+    public int getKeyCount() {
+        return keyCount;
+    }
+
+    public void setKeyCount(int keyCount) {
+        this.keyCount = keyCount;
+    }
+
+    public int getMouseCount() {
+        return mouseCount;
+    }
+
+    public void setMouseCount(int mouseCount) {
+        this.mouseCount = mouseCount;
     }
 }
