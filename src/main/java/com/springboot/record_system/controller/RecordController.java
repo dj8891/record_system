@@ -26,7 +26,7 @@ public class RecordController {
 
   @PostMapping("/upload")
   public String uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("id") String id) throws IOException {
-    String callUploadDir = "src/main/resources/static/upload/call/";
+    String callUploadDir = "src/main/resources/upload/call/";
     if(file.isEmpty()) {
       return "Please select a file to upload";
     }

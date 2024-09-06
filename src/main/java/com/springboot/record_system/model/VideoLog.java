@@ -1,5 +1,6 @@
 package com.springboot.record_system.model;
 
+import org.jcodec.common.DictionaryCompressor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,13 +19,23 @@ public class VideoLog {
     private List<String> urls;
     private int keyCount;
     private int mouseCount;
+    private Integer duration;
 
-    public VideoLog(Date fromDate, Date toDate, String fileLocation, String ipAddress, String name) {
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public VideoLog(Date fromDate, Date toDate, String fileLocation, String ipAddress, String name, Integer duration) {
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.fileLocation = fileLocation;
         this.ipAddress = ipAddress;
         this.name = name;
+        this.duration = duration;
     }
 
     public String getId() {

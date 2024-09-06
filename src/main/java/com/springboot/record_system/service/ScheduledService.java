@@ -81,12 +81,17 @@ public class ScheduledService {
                     Date currentDate = utilityService.convertLocalDateTimeToUtc(dateTime);
                     Date beforeDate = utilityService.convertLocalDateTimeToUtc(beforeDateTime);
                     List<DetectLog> detectList = detectLogRepository.findByIpAddressAndLogTimeBetweenOrderByLogTimeAsc(ipAddress, beforeDate, currentDate);
+                    File detectDir = new File("src/main/resources/upload/detect/");
+                    if(!detectDir.exists()) {
+                        boolean isDetectDirExist = detectDir.mkdir();
+                    }
                     if(!detectList.isEmpty()) {
-                        String absoluteFile = Paths.get("src/main/resources/static/upload/detect/" + userName + "images.txt").toAbsolutePath().toString();
+
+                        String absoluteFile = detectDir.getAbsolutePath() + "/" + userName + "images.txt";
                         File imageListFile = new File(absoluteFile);
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(imageListFile))) {
                             for (DetectLog detectLog : detectList) {
-                                String abFile = Paths.get("src/main/resources/static/" + detectLog.getFileLocation()).toAbsolutePath().toString();
+                                String abFile = Paths.get("src/main/resources/" + detectLog.getFileLocation()).toAbsolutePath().toString();
                                 File imgFile = new File(abFile);
                                 if (imgFile.exists() && imgFile.length() != 0) {
                                     writer.write("file '" + imgFile.getAbsolutePath() + "'");
@@ -97,7 +102,7 @@ public class ScheduledService {
                             throw new RuntimeException("Error writing image list file", e);
                         }
 
-                        File uploadDir = new File("src/main/resources/static/upload/video/" + userName + "/");
+                        File uploadDir = new File("src/main/resources/upload/video/");
                         if(!uploadDir.exists()) {
                             boolean dir = uploadDir.mkdirs();
                             System.out.println(dir);
@@ -115,12 +120,13 @@ public class ScheduledService {
                         String nanosecondsPart = String.format("%09d", dateTime.getNano());
 
                         // Combine the date part and nanoseconds part
-                        String result = datePart + "_" + nanosecondsPart;
-                        String relativePath = "src/main/resources/static/upload/video/" + userName + "/";
+                        String result = userName + "_" + datePart + "_" + nanosecondsPart;
+                        String relativePath = "src/main/resources/upload/video/";
                         String absolutePath = Paths.get(relativePath).toAbsolutePath().toString();
 
+                        // C:\\Program Files\\ffmpeg-7.0.2-essentials_build\\bin\\ffmpeg.exe for K
                         ProcessBuilder processBuilder = new ProcessBuilder(
-                                "C:\\Program Files\\ffmpeg-7.0.2-essentials_build\\bin\\ffmpeg.exe",
+                                "ffmpeg",
                                 "-r", "2",
                                 "-f", "concat",
                                 "-safe", "0",
@@ -140,11 +146,12 @@ public class ScheduledService {
                             if(exitCode == 0) {
                                 boolean cleared = imageListFile.delete();
                                 // save video data to database
-                                VideoLog videoLog = new VideoLog(beforeDate, currentDate, "upload/video/" + userName + "/" + result + ".mp4", ipAddress, userName);
+                                Integer duration = detectList.size() / 2;
+                                VideoLog videoLog = new VideoLog(beforeDate, currentDate, "upload/video/" + userName + "_" + result + ".mp4", ipAddress, userName, duration);
                                 videoLogRepository.save(videoLog);
 
                                 for(DetectLog detectLog: detectList) {
-                                    String absoluteDeletePath = Paths.get("src/main/resources/static/" + detectLog.getFileLocation()).toAbsolutePath().toString();
+                                    String absoluteDeletePath = Paths.get("src/main/resources/" + detectLog.getFileLocation()).toAbsolutePath().toString();
                                     File newFile = new File(absoluteDeletePath);
                                     if(newFile.exists()) {
                                         boolean isDelete = newFile.delete();

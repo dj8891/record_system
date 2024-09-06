@@ -39,7 +39,7 @@ public class DetectController {
 
     @PostMapping("/create")
     public String uploadFile(@RequestParam("url") String url, @RequestParam("isKeyPressed") boolean isKeyPressed, @RequestParam("isBtnClicked") boolean isBtnClicked, @ModelAttribute("file") MultipartFile file, HttpServletRequest request) throws IOException {
-        String uploadDir = "src/main/resources/static/upload/detect/";
+        String uploadDir = "src/main/resources/upload/detect/";
         if(file.isEmpty()) {
             return "Please select a file to upload";
         }
