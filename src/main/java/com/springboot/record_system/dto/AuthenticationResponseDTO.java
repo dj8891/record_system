@@ -1,7 +1,5 @@
 package com.springboot.record_system.dto;
 
-import com.springboot.record_system.model.Role;
-
 public class AuthenticationResponseDTO {
   private String token;
 

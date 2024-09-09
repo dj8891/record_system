@@ -21,14 +21,12 @@ import java.util.List;
 public class DetectController {
 
     private final FileProcessingService fileProcessingService;
-    private final ObjectMapper objectMapper;
     private final VideoService videoService;
 
     public DetectController(FileProcessingService fileProcessingService,
                             VideoService videoService,
                             ObjectMapper objectMapper) {
         this.fileProcessingService = fileProcessingService;
-        this.objectMapper = objectMapper;
         this.videoService = videoService;
     }
     // check if server is connected
@@ -38,8 +36,12 @@ public class DetectController {
     }
 
     @PostMapping("/create")
-    public String uploadFile(@RequestParam("url") String url, @RequestParam("isKeyPressed") boolean isKeyPressed, @RequestParam("isBtnClicked") boolean isBtnClicked, @ModelAttribute("file") MultipartFile file, HttpServletRequest request) throws IOException {
-        String uploadDir = "src/main/resources/upload/detect/";
+    public String uploadFile(@RequestParam("url") String url,
+                             @RequestParam("isKeyPressed") boolean isKeyPressed,
+                             @RequestParam("isBtnClicked") boolean isBtnClicked,
+                             @ModelAttribute("file") MultipartFile file,
+                             HttpServletRequest request) throws IOException {
+        String uploadDir = "upload/detect/";
         if(file.isEmpty()) {
             return "Please select a file to upload";
         }

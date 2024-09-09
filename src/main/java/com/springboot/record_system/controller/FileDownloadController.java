@@ -20,7 +20,7 @@ public class FileDownloadController {
   @GetMapping("/{filename:.+}")
   public ResponseEntity<Resource> getFile(@PathVariable String filename) {
     try {
-      String uploadDir = "src/main/resources/upload/";
+      String uploadDir = "upload/";
       Path filePath = Paths.get(uploadDir).resolve(filename).normalize();
       Resource resource = new UrlResource(filePath.toUri());
 

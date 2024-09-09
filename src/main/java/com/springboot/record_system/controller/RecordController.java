@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import com.springboot.record_system.dto.RecordDTO;
 import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/record")
@@ -26,7 +24,7 @@ public class RecordController {
 
   @PostMapping("/upload")
   public String uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("id") String id) throws IOException {
-    String callUploadDir = "src/main/resources/upload/call/";
+    String callUploadDir = "upload/call/";
     if(file.isEmpty()) {
       return "Please select a file to upload";
     }

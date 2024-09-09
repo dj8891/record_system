@@ -1,7 +1,6 @@
 package com.springboot.record_system.repository;
 
 import com.springboot.record_system.model.VideoLog;
-import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -23,6 +22,4 @@ public interface VideoLogRepository extends MongoRepository<VideoLog, String> {
 //            "{ '$project': { 'fromDate': 1, 'toDate': 1, 'detectLogs': 1, 'fileLocation': 1 } }"
 //    })
     public List<VideoLog> findByNameAndFromDateBetween(String name, Date fromDate, Date toDate);
-    public boolean existsByFromDateBetweenAndName(Date startDate, Date endDate, String name);
-    public List<VideoLog> findAllByFromDateBetweenAndName(Date startDate, Date endDate, String name);
 }

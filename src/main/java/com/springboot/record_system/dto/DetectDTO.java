@@ -1,7 +1,5 @@
 package com.springboot.record_system.dto;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class DetectDTO {
     private String url;
     private boolean isKeyPressed;

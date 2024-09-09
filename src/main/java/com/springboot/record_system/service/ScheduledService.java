@@ -81,7 +81,7 @@ public class ScheduledService {
                     Date currentDate = utilityService.convertLocalDateTimeToUtc(dateTime);
                     Date beforeDate = utilityService.convertLocalDateTimeToUtc(beforeDateTime);
                     List<DetectLog> detectList = detectLogRepository.findByIpAddressAndLogTimeBetweenOrderByLogTimeAsc(ipAddress, beforeDate, currentDate);
-                    File detectDir = new File("src/main/resources/upload/detect/");
+                    File detectDir = new File("upload/detect/");
                     if(!detectDir.exists()) {
                         boolean isDetectDirExist = detectDir.mkdir();
                     }
@@ -91,7 +91,7 @@ public class ScheduledService {
                         File imageListFile = new File(absoluteFile);
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(imageListFile))) {
                             for (DetectLog detectLog : detectList) {
-                                String abFile = Paths.get("src/main/resources/" + detectLog.getFileLocation()).toAbsolutePath().toString();
+                                String abFile = Paths.get("upload/" + detectLog.getFileLocation()).toAbsolutePath().toString();
                                 File imgFile = new File(abFile);
                                 if (imgFile.exists() && imgFile.length() != 0) {
                                     writer.write("file '" + imgFile.getAbsolutePath() + "'");
@@ -102,7 +102,7 @@ public class ScheduledService {
                             throw new RuntimeException("Error writing image list file", e);
                         }
 
-                        File uploadDir = new File("src/main/resources/upload/video/");
+                        File uploadDir = new File("upload/video/");
                         if(!uploadDir.exists()) {
                             boolean dir = uploadDir.mkdirs();
                             System.out.println(dir);
@@ -121,12 +121,12 @@ public class ScheduledService {
 
                         // Combine the date part and nanoseconds part
                         String result = userName + "_" + datePart + "_" + nanosecondsPart;
-                        String relativePath = "src/main/resources/upload/video/";
+                        String relativePath = "upload/video/";
                         String absolutePath = Paths.get(relativePath).toAbsolutePath().toString();
 
                         // C:\\Program Files\\ffmpeg-7.0.2-essentials_build\\bin\\ffmpeg.exe for K
                         ProcessBuilder processBuilder = new ProcessBuilder(
-                                "ffmpeg",
+                                "C:\\Program Files\\ffmpeg-7.0.2-essentials_build\\bin\\ffmpeg.exe",
                                 "-r", "2",
                                 "-f", "concat",
                                 "-safe", "0",
@@ -145,21 +145,33 @@ public class ScheduledService {
                             int exitCode = process.waitFor();
                             if(exitCode == 0) {
                                 boolean cleared = imageListFile.delete();
-                                // save video data to database
-                                Integer duration = detectList.size() / 2;
-                                VideoLog videoLog = new VideoLog(beforeDate, currentDate, "upload/video/" + userName + "_" + result + ".mp4", ipAddress, userName, duration);
-                                videoLogRepository.save(videoLog);
 
+                                int keyCnt = 0;
+                                int mouseCnt = 0;
+                                List<String> urls = new ArrayList<>();
                                 for(DetectLog detectLog: detectList) {
-                                    String absoluteDeletePath = Paths.get("src/main/resources/" + detectLog.getFileLocation()).toAbsolutePath().toString();
+                                    if (detectLog.isKeyPressed()) keyCnt++;
+                                    if (detectLog.isBtnClicked()) mouseCnt++;
+
+                                    String curUrl = detectLog.getUrl();
+                                    if (curUrl != null && !urls.contains(curUrl)) {
+                                        urls.add(curUrl);
+                                    }
+                                    String absoluteDeletePath = Paths.get("upload/" + detectLog.getFileLocation()).toAbsolutePath().toString();
                                     File newFile = new File(absoluteDeletePath);
                                     if(newFile.exists()) {
                                         boolean isDelete = newFile.delete();
                                     }
                                 }
-
+                                // save video data to database
+                                Integer duration = detectList.size() / 2;
+                                VideoLog videoLog = new VideoLog(beforeDate, currentDate, "video/" + result + ".mp4", ipAddress, userName, duration);
+                                videoLog.setUrls(urls);
+                                videoLog.setKeyCount(keyCnt);
+                                videoLog.setMouseCount(mouseCnt);;
+                                videoLogRepository.save(videoLog);
                                 // delete detect data used to make video from database
-//                                detectLogRepository.deleteAll(detectList);
+                                detectLogRepository.deleteAll(detectList);
                             } else {
                                 System.out.println("Video creation failed with code " + exitCode);
                             }

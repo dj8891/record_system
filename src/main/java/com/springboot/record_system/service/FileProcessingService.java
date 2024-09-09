@@ -69,9 +69,9 @@ public class FileProcessingService {
     }
 
     if(fileUploadDTO.isCall())
-      callService.updateRecord(fileUploadDTO.getId(), isVideo, "upload/call/" + fileName);
+      callService.updateRecord(fileUploadDTO.getId(), isVideo, "call/" + fileName);
     else {
-      detectService.updateRecord(fileUploadDTO.getDetectDTO(), "upload/detect/" + fileName);
+      detectService.updateRecord(fileUploadDTO.getDetectDTO(), "detect/" + fileName);
     }
   }
 }

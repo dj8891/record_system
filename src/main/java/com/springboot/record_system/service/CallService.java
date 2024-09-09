@@ -1,11 +1,9 @@
 package com.springboot.record_system.service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.springboot.record_system.model.IPSetting;
 import com.springboot.record_system.repository.IPRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.springboot.record_system.dto.RecordDTO;

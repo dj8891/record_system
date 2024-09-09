@@ -1,13 +1,10 @@
 package com.springboot.record_system.repository;
 
-import com.springboot.record_system.model.CallLog;
 import com.springboot.record_system.model.DetectLog;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
