@@ -37,6 +37,7 @@ public class FileProcessingService {
     }
     RecordDTO recordDTO = new RecordDTO();
     // Create a LocalDateTime object with the specific value
+
     LocalDateTime dateTime = recordDTO.getCurrentDateTime();
 
     // Define the DateTimeFormatter to format the date part
@@ -50,7 +51,9 @@ public class FileProcessingService {
 
     // Combine the date part and nanoseconds part
     String result = datePart + "_" + nanosecondsPart;
-    String fileName = (fileUploadDTO.getDetectDTO().getIpAddress().isEmpty() ? "" : (fileUploadDTO.getDetectDTO().getIpAddress() + "_")) + result + "_" + file.getOriginalFilename();
+    String fileName = "";
+    if(fileUploadDTO.isCall()) fileName = result + "_" + file.getOriginalFilename();
+    else fileName = (fileUploadDTO.getDetectDTO().getIpAddress().isEmpty() ? "" : (fileUploadDTO.getDetectDTO().getIpAddress() + "_")) + result + "_" + file.getOriginalFilename();
     File uploadDir = new File(UPLOAD_DIR);
     if(!uploadDir.exists()) {
       boolean dir = uploadDir.mkdirs();

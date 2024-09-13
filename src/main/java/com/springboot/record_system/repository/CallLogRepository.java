@@ -12,7 +12,8 @@ public interface CallLogRepository extends MongoRepository<CallLog, String> {
     @Aggregation(pipeline = {
             "{ '$lookup': { 'from': 'ip_setting', 'localField': 'ipAddress', 'foreignField': 'ipAddress', 'as': 'ipAddress' } }",
             "{ '$unwind': '$ipAddress' }",
-            "{ '$addFields': { 'userName': '$ipAddress.userName', 'ipAddress': '$ipAddress.ipAddress' } }"
+            "{ '$addFields': { 'userName': '$ipAddress.userName', 'ipAddress': '$ipAddress.ipAddress' } }",
+            "{ '$sort': { 'fromTime': -1 } }"
     })
     List<CallLog> findCallLogWithUserName();
 }
