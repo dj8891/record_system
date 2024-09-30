@@ -29,9 +29,10 @@ public class VideoService {
     public List<VideoLog> getVideo(String date, String name) throws IOException, InterruptedException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.parse(date, formatter);
+        LocalDate nextDate = localDate.plusDays(1);
         // Convert String to LocalDateTime
         LocalDateTime fromDateTime = LocalDateTime.of(localDate.getYear(), localDate.getMonth(), localDate.getDayOfMonth(), 0, 0, 0);
-        LocalDateTime toDateTime = LocalDateTime.of(localDate.getYear(), localDate.getMonth(), (localDate.getDayOfMonth() + 1), 0, 0, 0);
+        LocalDateTime toDateTime = LocalDateTime.of(nextDate.getYear(), nextDate.getMonth(), nextDate.getDayOfMonth(), 0, 0, 0);
         Date fromDate = utilityService.convertLocalDateTimeToUtc(fromDateTime);
         Date toDate = utilityService.convertLocalDateTimeToUtc(toDateTime);
         return videoLogRepository.findByNameAndFromDateBetween(name, fromDate, toDate);

@@ -45,7 +45,7 @@ public class AuthenticationService {
         .setToken(jwtToken);
   }
 
-  public <Optional>User authenticate(UserDTO input) {
+  public User authenticate(UserDTO input) {
     try {
       Authentication auth = authenticationManager.authenticate(
           new UsernamePasswordAuthenticationToken(
